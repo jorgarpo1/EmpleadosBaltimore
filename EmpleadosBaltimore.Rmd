@@ -1,0 +1,41 @@
+---
+title: "EmpleadosBaltimore"
+output: html_document
+date: "2024-02-14"
+---
+```{r setup, incluse=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("Rbase")
+install.packages("rio")
+install.packages("readr")
+```
+
+```{r}
+rm(list = ls())
+```
+
+#Importamos datos con Rbase
+```{r}
+library(base)
+datosRbase<- read.csv("data/Baltimore_City_Employee_Salaries.csv")
+View(datosRbase)
+```
+
+#Importamos datos con Readr
+```{r}
+library(readr)
+datosReadr<- read_csv("data/Baltimore_City_Employee_Salaries.csv", 
+                                             col_types = cols(hireDate = col_date(format = "%Y-%m-%d")))
+View(datosReadr)
+```
+
+#Importamos datos con RIO
+```{r}
+library(rio)
+datosRio <-import(file = "data/Baltimore_City_Employee_Salaries.csv")
+View(datosRio)
+```
+
